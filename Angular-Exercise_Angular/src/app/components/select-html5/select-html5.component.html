@@ -1,0 +1,85 @@
+<label class="my-label" tabindex="-1">{{label}}</label>
+<div class="dropdown my-dropdown" [class.open]="isDropOpen">
+  <button #dropButton autofocus (clickOutside)="onClickedOutside($event)" class="btn btn-secondary my-input" type="button"
+    id="dropdownMenuButton" aria-haspopup="true" [attr.aria-expanded]="isDropOpen" (onChange)="toggleCurrentPerson(person)"
+    (click)="toggleDrop()" *ngIf="value" tabindex="1" (keydown.alt.ArrowDown)="toggleDrop(true)" (keydown.esc)="onEsc()" (keydown.ArrowUp)="onArrow(true)"
+    (keydown.ArrowDown)="onArrow(false)" (keydown.enter)="onEnter($event)" (keydown.delete)="onCanc()" (keydown.shift.enter)="onShiftEnter($event)">
+    <span class="my-text">
+      {{value.name}} {{value.surname}}, {{value.birthDate | date: 'EEEE, dd/MM/yyyy' | dateItFirstUpper}}
+    </span>
+    <span class="my-caret glyphicon glyphicon-triangle-bottom "></span>
+  </button>
+  <button id="plus" (click)="onInsertModalOpen()" data-toggle="modal" data-target="#exampleModal" class="my-plus-button glyphicon glyphicon-plus"
+    title="Add new person" tabindex="2"></button>
+  <ul class="dropdown-menu my-dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li *ngFor="let person of values" class="my-drop" [class.selected]="highlightedPerson===person" [class.current-element]="person===value"
+      (click)="toggleCurrentPerson(person, $event)">
+      <span>
+        <a class="my-name dropdown-item" href="#">
+          <span class="text-span">
+            {{person.name}} {{person.surname}}, {{person.birthDate | date: 'EEEE, dd/MM/yyyy' | dateItFirstUpper}}
+          </span>
+          <span class="icon-span">
+            <a class="my-icon glyphicon glyphicon-trash" (click)="delete(person)" title="Delete"></a>
+            <a class="my-icon glyphicon glyphicon-pencil" (click)="onEditModalOpen(person, $event);" data-toggle="modal" data-target="#exampleModal"
+              #editLink title="Edit"></a>
+          </span>
+        </a>
+      </span>
+    </li>
+  </ul>
+</div>
+
+<app-modal-form [title]="formTitle" [person]="editedPerson">
+  <form #addForm="ngForm" (ngSubmit)="add(addForm.value); addForm.reset();" *ngIf="isInsertMode else editBlock" (keydown.esc)="onEsc()">
+    <div class="modal-body">
+      <label>Id:</label>
+      <input type="text" name="id" [ngModel]="generatedId" disabled tabindex="1">
+      <br/>
+
+      <label>Name:</label>
+      <input type="text" name="name" ngModel tabindex="2" autofocus>
+      <br/>
+
+      <label>Surname:</label>
+      <input type="text" name="surname" ngModel tabindex="3">
+      <br/>
+
+      <label>Date:</label>
+      <input type="date" name="birthDate" ngModel tabindex="4">
+      <br/>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary cancel-button" data-dismiss="modal" (click)="onCancelClick($event)"
+        tabindex="5">Cancel</button>
+      <button type="submit" class="btn btn-primary" onclick="$('#exampleModal').modal('hide'); " tabindex="6">Add</button>
+    </div>
+  </form>
+
+  <ng-template #editBlock>
+    <form #editForm="ngForm" (ngSubmit)="update(editForm.value)" (keydown.esc)="onEsc()">
+      <div class="modal-body">
+        <label>Id:</label>
+        <input type="text" disabled name="id" [(ngModel)]="editedPerson.id" tabindex="1">
+        <br/>
+
+        <label>Name:</label>
+        <input type="text" name="name" [(ngModel)]="editedPerson.name" tabindex="2" autofocus>
+        <br/>
+
+        <label>Surname:</label>
+        <input type="text" name="surname" [(ngModel)]="editedPerson.surname" tabindex="3">
+        <br/>
+
+        <label>Date:</label>
+        <input type="date" name="date" [ngModel]="editedPerson.birthDate | date:'yyyy-MM-dd'" (ngModelChange)="onDateChange($event)" tabindex="4">
+        <br/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancel-button" data-dismiss="modal" (click)="onCancelClick($event)" tabindex="5">Cancel</button>
+        <button type="submit" class="btn btn-primary" onclick="$('#exampleModal').modal('hide'); " tabindex="6">Save</button>
+      </div>
+    </form>
+  </ng-template>
+</app-modal-form>

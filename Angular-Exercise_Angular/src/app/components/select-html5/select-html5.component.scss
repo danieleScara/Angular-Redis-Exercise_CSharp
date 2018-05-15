@@ -1,0 +1,194 @@
+$blue-color: #007AC3;
+$dark-gray-color: #415167;
+$white-color: #D9DCE1;
+$light-white-color: $white-color + 15;
+$dim-24: 24px;
+$font-size-default: 14px;
+
+@mixin borders(){
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px;
+}
+
+@mixin vertical-alignment(){
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.my-plus-button{
+    width: $dim-24;
+    height: $dim-24;
+    background-color:  $white-color;
+    border: none;
+    border-radius: 12px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+    color: $blue-color;
+    position: relative;
+    top: 3px;
+    &:hover, &:focus{
+      background-color: $light-white-color;
+    }
+  }
+
+  .my-caret{
+    height: $dim-24;  
+    color:  $dark-gray-color;  
+    float: right; 
+    width: 10%; 
+    text-align: right;
+  }
+
+  .my-label{
+      margin-bottom: 5px;
+      margin-left: 10px;
+      padding: 0px;
+      font-size: 12px;
+      height: 12px;
+      color: #838E9D;
+  }
+
+  .my-input{
+      @include borders();
+      border-color: #838E9D;
+      margin-top: 0px;
+      margin-left: 10px;
+      padding: 10px;
+      padding-top: 9px;
+      padding-left: 0px;
+      height: 34px;
+      vertical-align: middle;
+      color:  $dark-gray-color;
+      background-color: white;
+      text-align: left;
+      width: 50%;
+      border-radius: 0;
+      min-width: 200px;
+      &:active {
+        box-shadow: none;
+      }
+  }
+
+  .my-input:hover{
+    border-bottom-color: $dark-gray-color;
+   }
+
+   .my-input:active{
+    @include borders();
+    border-bottom-color: $blue-color;
+   }
+
+   .my-input:focus{
+    
+    border-bottom-color: $blue-color;
+   }
+
+  .my-drop{
+    border: solid 1px;
+    border-color:  #CFD3D9;
+    height: 44px;
+    font-size: 14px;
+    margin: 0px;
+    vertical-align: middle;
+    padding: 15px;
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+
+  .my-dropdown-menu {
+    border: none;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
+    box-shadow: none;
+    width: 50%;
+    min-width: 200px;
+  }
+
+  .my-drop:hover{
+    background-color:  $white-color ;  
+  }
+
+  .my-name {
+    @include vertical-alignment();
+    font-size: $font-size-default;
+    color: $dark-gray-color;
+    padding: 0px;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  .my-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  .my-icon {
+    @include vertical-alignment();
+      font-size: $font-size-default;
+      height: 14px;
+      color: $blue-color;
+      padding-right: 5px;
+      padding-left: 5px;
+      padding-top: 1px;
+      padding-bottom: 0px;
+      float: right;
+      &:hover{
+        text-decoration: none;
+      }
+  }
+
+  .text-span {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon-span {
+    width: 20%;
+    min-width: 50px;
+    font-size: 14px;
+    position: absolute;
+    text-align: right;
+  }
+
+  .selected {
+    background-color:  #F6F6F6 ;
+  }
+
+  .current-element {
+    background-color:  $white-color ;
+  }
+
+  .cancel-button   {
+    &:hover, &:focus{
+      background-color: rgb(186, 191, 197);
+    }
+  }   
+
+  .my-dropdown {
+    min-width:250px;
+  }
+
+  .scrollable-menu {
+    height: auto;
+    max-height: 132px;
+    overflow-x: hidden;
+  }
