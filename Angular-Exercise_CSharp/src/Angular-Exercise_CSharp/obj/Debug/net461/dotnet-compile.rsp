@@ -1,5 +1,5 @@
---temp-output:C:\Users\dscaramuzzi\Desktop\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\obj\Debug\net461\
---out:C:\Users\dscaramuzzi\Desktop\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\bin\Debug\net461\Angular-Exercise_CSharp.exe
+--temp-output:C:\Users\dscaramuzzi\Desktop\Angular-Redis-CSharp-Exercise\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\obj\Debug\net461\
+--out:C:\Users\dscaramuzzi\Desktop\Angular-Redis-CSharp-Exercise\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\bin\Debug\net461\Angular-Exercise_CSharp.exe
 --define:DEBUG
 --define:TRACE
 --define:NET461
@@ -158,7 +158,7 @@
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.ComponentModel.DataAnnotations.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Runtime.Serialization.dll
---resource:"C:\Users\dscaramuzzi\Desktop\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\obj\Debug\net461\Angular-Exercise_CSharpdotnet-compile.deps.json",Angular-Exercise_CSharp.deps.json
-C:\Users\dscaramuzzi\Desktop\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\Program.cs
-C:\Users\dscaramuzzi\Desktop\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\Startup.cs
-C:\Users\dscaramuzzi\Desktop\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\Controllers\ValuesController.cs
+--resource:"C:\Users\dscaramuzzi\Desktop\Angular-Redis-CSharp-Exercise\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\obj\Debug\net461\Angular-Exercise_CSharpdotnet-compile.deps.json",Angular-Exercise_CSharp.deps.json
+C:\Users\dscaramuzzi\Desktop\Angular-Redis-CSharp-Exercise\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\Program.cs
+C:\Users\dscaramuzzi\Desktop\Angular-Redis-CSharp-Exercise\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\Startup.cs
+C:\Users\dscaramuzzi\Desktop\Angular-Redis-CSharp-Exercise\Angular-Exercise_CSharp\src\Angular-Exercise_CSharp\Controllers\ValuesController.cs
