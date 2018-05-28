@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/",
-    "signature": "07c55a4b4d8a9d57957a6c5666ea823b832614a3"
+    "signature": "3cc0209704fd2012a62d5affbbf32e4a70f3362e"
   },
   "compilationOptions": {
     "defines": [
@@ -31,7 +31,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Newtonsoft.Json": "11.0.2",
-          "ServiceStack.Redis": "5.1.0"
+          "ServiceStack.Redis": "5.1.0",
+          "StackExchange.Redis": "1.2.6"
         },
         "compile": {
           "Angular-Exercise_CSharp.exe": {}
@@ -950,6 +951,16 @@
           "lib/net45/ServiceStack.Text.dll": {}
         }
       },
+      "StackExchange.Redis/1.2.6": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.0.0",
+          "System": "4.0.0.0",
+          "System.IO.Compression": "4.0.0.0"
+        },
+        "compile": {
+          "lib/net46/StackExchange.Redis.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "dependencies": {
           "mscorlib": "4.0.0.0"
@@ -1319,6 +1330,11 @@
           ".NETFramework/v4.6.1/System.ComponentModel.DataAnnotations.dll": {}
         }
       },
+      "System.IO.Compression/4.0.0.0": {
+        "compile": {
+          ".NETFramework/v4.6.1/System.IO.Compression.dll": {}
+        }
+      },
       "System.Numerics/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.6.1/System.Numerics.dll": {}
@@ -1347,7 +1363,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Newtonsoft.Json": "11.0.2",
-          "ServiceStack.Redis": "5.1.0"
+          "ServiceStack.Redis": "5.1.0",
+          "StackExchange.Redis": "1.2.6"
         },
         "runtime": {
           "Angular-Exercise_CSharp.exe": {}
@@ -2262,6 +2279,16 @@
           "lib/net45/ServiceStack.Text.dll": {}
         }
       },
+      "StackExchange.Redis/1.2.6": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.0.0",
+          "System": "4.0.0.0",
+          "System.IO.Compression": "4.0.0.0"
+        },
+        "runtime": {
+          "lib/net46/StackExchange.Redis.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "dependencies": {
           "mscorlib": "4.0.0.0"
@@ -2505,6 +2532,7 @@
       "System.Xml/4.0.0.0": {},
       "System.Xml.Linq/4.0.0.0": {},
       "System.ComponentModel.DataAnnotations/4.0.0.0": {},
+      "System.IO.Compression/4.0.0.0": {},
       "System.Numerics/4.0.0.0": {},
       "System.Runtime.Serialization/4.0.0.0": {}
     }
@@ -2960,6 +2988,11 @@
       "serviceable": true,
       "sha512": "sha512-4Zcv/RjXxflsPGPkOR1MaUp+nSgVAbRWliWg7kOMcsGood+NT9pAgWTA9lZeABBt/YP0nVttQWfkVebv7s40hQ=="
     },
+    "StackExchange.Redis/1.2.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uBzdFmPmsCJWZ/Iau85+2Ogal6nPiY5gT8pl2gA7R4dQ14GwRpwyTGkTuD1+hgHVuBW+zkCSnysmWc7h277r/g=="
+    },
     "System.AppContext/4.1.0": {
       "type": "package",
       "serviceable": true,
@@ -3271,6 +3304,11 @@
       "sha512": ""
     },
     "System.ComponentModel.DataAnnotations/4.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.IO.Compression/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

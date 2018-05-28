@@ -1315,6 +1315,20 @@
           "lib/net45/ServiceStack.Text.dll": {}
         }
       },
+      "StackExchange.Redis/1.2.6": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.IO.Compression"
+        ],
+        "compile": {
+          "lib/net46/StackExchange.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net46/StackExchange.Redis.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3206,6 +3220,21 @@
         "lib/netstandard2.0/ServiceStack.Text.deps.json",
         "lib/netstandard2.0/ServiceStack.Text.dll",
         "lib/netstandard2.0/ServiceStack.Text.xml"
+      ]
+    },
+    "StackExchange.Redis/1.2.6": {
+      "sha512": "uBzdFmPmsCJWZ/Iau85+2Ogal6nPiY5gT8pl2gA7R4dQ14GwRpwyTGkTuD1+hgHVuBW+zkCSnysmWc7h277r/g==",
+      "type": "package",
+      "path": "StackExchange.Redis/1.2.6",
+      "files": [
+        "StackExchange.Redis.1.2.6.nupkg.sha512",
+        "StackExchange.Redis.nuspec",
+        "lib/net45/StackExchange.Redis.dll",
+        "lib/net45/StackExchange.Redis.xml",
+        "lib/net46/StackExchange.Redis.dll",
+        "lib/net46/StackExchange.Redis.xml",
+        "lib/netstandard1.5/StackExchange.Redis.dll",
+        "lib/netstandard1.5/StackExchange.Redis.xml"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -5968,7 +5997,8 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Newtonsoft.Json >= 11.0.2",
-      "ServiceStack.Redis >= 5.1.0"
+      "ServiceStack.Redis >= 5.1.0",
+      "StackExchange.Redis >= 1.2.6"
     ],
     ".NETFramework,Version=v4.6.1": []
   },

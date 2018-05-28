@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ServiceStack.Redis;
+using StackExchange.Redis;
 using Newtonsoft.Json;
 using System.Net.Http;
 
@@ -20,6 +21,8 @@ namespace Angular_Exercise_CSharp.Controllers
     [Route("")]
     public class ValuesController : Controller
     {
+        ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost, allowAdmin=true");
+
 
         // GET api/values
         [HttpGet("listPersons")]
@@ -35,12 +38,30 @@ namespace Angular_Exercise_CSharp.Controllers
             }
             return Json(persons);*/
 
-            using (IRedisClient client = new RedisClient())
+            /*using (IRedisClient client = new RedisClient())
             {
                 var personClient = client.As<Person>();
                 var persons = personClient.GetAll();
                 return Json(persons);
+            }*/
+               
+            //Using StackExchange.Redis
+            var db = redis.GetDatabase();
+            var server = redis.GetServer("localhost",6379);
+            var personKeys = server.Keys(pattern: "person:*");
+            List<Person> persons = new List<Person>();
+            foreach (var item in personKeys) {
+                var current = db.HashGetAll(item);
+                Person temp = new Person
+                {
+                    id = (long)current[0].Value,
+                    name = (string)current[1].Value,
+                    surname = (string)current[2].Value,
+                    birthDate = (string)current[3].Value,
+                };
+                persons.Add(temp);
             }
+            return Json(persons);
         }
 
         // POST 
@@ -67,11 +88,20 @@ namespace Angular_Exercise_CSharp.Controllers
 
             redisClient.HMSet("person:" + person.id, keys, values);*/
 
-            using (IRedisClient client = new RedisClient())
+            /*using (IRedisClient client = new RedisClient())
             {
                 var personClient = client.As<Person>();
                 personClient.Store(new Person() { id = (long)person.id, name = person.name, surname = person.surname, birthDate = person.birthDate });
-            }
+            }*/
+
+            //Using StackExchange.Redis
+            var db = redis.GetDatabase();
+            db.HashSet("person:" + person.id, new HashEntry[] {
+                new HashEntry("id", (long)person.id),
+                new HashEntry("name", (string)person.name),
+                new HashEntry("surname", (string)person.surname),
+                new HashEntry("birthDate", (string)person.birthDate)
+            });
 
             //another way to do the same thing
             /*redisClient.SetEntryInHashIfNotExists("person:" + person.id, "id", (string)person.id);
@@ -87,12 +117,19 @@ namespace Angular_Exercise_CSharp.Controllers
             /*RedisClient redisClient = new RedisClient("localhost", 6379);
             redisClient.Del("person:"+id);*/
 
-            using (IRedisClient client = new RedisClient())
+            /*using (IRedisClient client = new RedisClient())
             {
                 var personClient = client.As<Person>();
                 var person = personClient.GetById(id);
                 personClient.Delete(person);
-            }
+            }*/
+
+            //Using StackExchange.Redis
+            var db = redis.GetDatabase();
+            db.HashDelete("person:" + id, "id");
+            db.HashDelete("person:" + id, "name");
+            db.HashDelete("person:" + id, "surname");
+            db.HashDelete("person:" + id, "birthDate");
 
             //another way to do the same thing
             /*redisClient.HDel("person:" + id, System.Text.Encoding.ASCII.GetBytes("id"));
